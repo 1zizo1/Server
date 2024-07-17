@@ -6,7 +6,7 @@ const port = process.env.PORT || 3000;
 app.get('/data', (req, res) => {
     const dbPath = path.join(__dirname, '..', 'db.json');
     fs.readFile(dbPath, 'utf8', (err, data) => {
-        if (err) {
+        if (err) { 
             res.status(500).send('Error reading database file');
             return;
         }
