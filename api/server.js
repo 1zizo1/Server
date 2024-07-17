@@ -2,7 +2,10 @@ const express = require("express");
 const fs = require('fs');
 const path = require('path');
 const app = express();
+const cors = require('cors');
 const port = process.env.PORT || 3000;
+app.use(cors({origin:"*",allowedHeaders:"*",methods:"*"}));
+
 app.get('/data', (req, res) => {
     const dbPath = path.join(__dirname, '..', 'db.json');
     fs.readFile(dbPath, 'utf8', (err, data) => {
